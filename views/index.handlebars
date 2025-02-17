@@ -1,0 +1,20 @@
+{{> layouts/main}}
+
+<main>
+  <h2>Items for Sale</h2>
+  <section id="saleItems">
+    {{#each inventory}}
+      <a href="/product/{{id}}" class="sale-item">
+        <div class="item-img-container">
+          <img src="/images/{{image}}" alt="{{name}}" />
+          <p>{{description}}</p>
+        </div>
+        <p>{{name}}</p>
+        <p>${{price}}</p>
+      </a>
+    {{/each}}
+  </section>
+</main>
+<footer>
+  <p>&copy; Music Shop</p>
+</footer>
