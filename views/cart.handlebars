@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Music Store</title>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="/">
+        <h1 class="logo">Music Shop🎸</h1>
+      </a>
+    </div>
+  </header>
+  <main>
+    <h2>Cart</h2>
+    <p>
+      <a href="/">Return to Store Page</a>
+    </p>
+    <section id="cart">
+      <div class="cart-items">
+        {{#each cartItems}}
+          <div class="cart-item">
+            <a href="/product/{{this.inventoryId}}" class="cart-item-info">
+              <img src="{{this.image}}" alt="{{this.name}}" />
+              <div>
+                <p>{{this.name}}</p>
+                <p>${{this.price}}</p>
+              </div>
+            </a>
+            <div class="cart-item-subtotal">
+              <div class="cart-item-controls">
+                <label>
+                  Quantity
+                  <input
+                    data-cart-id="{{this.id}}"
+                    type="number"
+                    min="0"
+                    max="{{this.inventoryQuantity}}"
+                    value="{{this.quantity}}" />
+                </label>
+                <button
+                  class="remove-from-cart"
+                  data-cart-id="{{this.id}}">
+                  Remove
+                </button>
+              </div>
+              <p>${{this.calculatedPrice}}</p>
+            </div>
+          </div>
+          <hr />
+        {{/each}}
+      </div>
+      <div class="cart-total">
+        <p>Total:</p>
+        <p>${{total}}</p>
+      </div>
+      <button id="emptyCart">Empty Cart</button>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>&copy; Music Shop</p>
+</footer>
+</body>
+</html>
