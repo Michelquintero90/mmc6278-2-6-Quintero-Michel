@@ -19,14 +19,14 @@
   <main>
     <h2>Items for Sale</h2>
     <section id="saleItems">
-      {{#each products}}
+      {{#each inventory}}
         <a href="/product/{{this.id}}" class="sale-item">
           <div class="item-img-container">
             <img src="{{this.image}}" alt="{{this.name}}" />
-            <p>{{this.description}}</p>
           </div>
-          <p>{{this.name}}</p>
+          <p><strong>{{this.name}}</strong></p>
           <p>${{this.price}}</p>
+          <p class="item-description">{{this.description}}</p>
         </a>
       {{/each}}
     </section>
