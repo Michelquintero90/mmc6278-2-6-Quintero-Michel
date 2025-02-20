@@ -1,27 +1,39 @@
-{{> layouts/main}}
+  <header>
+    <div class="header-container">
+      <a href="/">
+        <h1 class="logo">Music Shop🎸</h1>
+      </a>
+      <a href="/cart" class="cart-link">Cart ({{cartCount}})</a>
+    </div>
+  </header>
 
-<main>
-  <section id="product-container">
-    <img src="/images/{{product.image}}" alt="{{product.name}}"/>
-    <form method="POST" action="/api/cart?inventoryId={{product.id}}">
-      <h2>{{product.name}}</h2>
-      <p>{{product.description}}</p>
-      <p>${{product.price}}</p>
-      <label for="quantity-input">
-        Quantity
-        <input
-          name="quantity"
-          id="quantity-input"
-          type="number"
-          min="1"
-          value="1"
-          max="{{product.quantity}}" />
-      </label>
-      <button>Add to Cart</button>
-    </form>
-  </section>
-  <a href="/" id="returnToStore">Return to Store Page</a>
-</main>
-<footer>
-  <p>&copy; Music Shop</p>
-</footer>
+  <main>
+    <h2>Items for Sale</h2>
+
+    <section id="saleItems">
+      <section id="product-container">
+        <img src="/images/{{product.image}}" alt="{{product.name}}"/>
+        <form method="POST" action="/api/cart?inventoryId={{product.id}}">
+          <h2>{{product.name}}</h2>
+          <p>{{product.description}}</p>
+          <p>${{product.price}}</p>
+          <label for="quantity-input">
+            Quantity
+            <input
+              name="quantity"
+              id="quantity-input"
+              type="number"
+              min="1"
+              value="1"
+              max="{{product.quantity}}" />
+          </label>
+          <button>Add to Cart</button>
+        </form>
+      </section>
+      <a href="/" id="returnToStore">Return to Store Page</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Music Shop</p>
+  </footer>
